@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class TeleOp extends LinearOpMode {
 
-    private DcMotor MotAVD0, MotARD1, MotAVG2, MotARG3;
+    private DcMotor MotARD0, MotAVD1, MotARG2, MotAVG3;
 
     public void runOpMode() {
 
@@ -43,10 +43,10 @@ public class TeleOp extends LinearOpMode {
 
                 //contrôle moteurs mouvement
             
-                MotAVD0.setPower(AVD);
-                MotARD1.setPower(ARD);
-                MotAVG2.setPower(AVG);
-                MotARG3.setPower(ARG);
+                MotARD0.setPower(ARD);
+                MotAVD1.setPower(AVD);
+                MotARG2.setPower(ARG);
+                MotAVG3.setPower(AVG);
         }
     }
 
@@ -56,16 +56,17 @@ public class TeleOp extends LinearOpMode {
         //attribution des moteurs à leur objet physiques à contrôler + détermination du comportement du moteur
 
 
-        MotAVD0 = hardwareMap.get(DcMotor.class, "MotAVD0");
-        MotARD1 = hardwareMap.get(DcMotor.class, "MotARD1");
-        MotAVG2 = hardwareMap.get(DcMotor.class, "MotAVG2");
-        MotARG3 = hardwareMap.get(DcMotor.class, "MotARG3");
+        MotARD0 = hardwareMap.get(DcMotor.class, "MotARD0");
+        MotAVD1 = hardwareMap.get(DcMotor.class, "MotAVD1");
+        MotARG2 = hardwareMap.get(DcMotor.class, "MotARG2");
+        MotAVG3 = hardwareMap.get(DcMotor.class, "MotAVG3");
         
         //déclaration des sens de rotation des moteurs liés à chaque roue
-        MotAVD0.setDirection(DcMotor.Direction.REVERSE);
-        MotARD1.setDirection(DcMotor.Direction.REVERSE);
-        MotAVG2.setDirection(DcMotor.Direction.FORWARD);
-        MotARG3.setDirection(DcMotor.Direction.FORWARD);
+        MotARD0.setDirection(DcMotor.Direction.REVERSE);
+        MotAVD1.setDirection(DcMotor.Direction.REVERSE);
+        MotARG2.setDirection(DcMotor.Direction.FORWARD);
+        MotAVG3.setDirection(DcMotor.Direction.FORWARD);
 
     }
+
 }
