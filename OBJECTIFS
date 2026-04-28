@@ -1,1 +1,5 @@
 La ce qu'on va essayer de faire c'est continuer le code pour le canon c'est à dire essayer de faire le squelette du code après on mettra le bon nom des moteurs et les calculs de Yann
+Trier les balles (automate) : servo moteur et capteur de couleur, selon vilet ou vert, servo moteur tourne dans une direction ou une autre. Compter aussi les balles si déjà deux alors il ne trie pas pour le moment
+Il faut donc régler un compteur de balles ainsi que bien récupérer les couleurs à l'aide du capteur de couleur.
+On dit que le côté gauche est définit pour la couleur verte et le côté droit pour la couleur violette.
+Pour la partie TeleOp on peut juste faire ça à la main en tant qu'humain c'est à dire juste mettre les balles ou il y a de la place et configurer deux touches pour soit faire partir la servo moteur à droite soit à gauche 
