@@ -30,15 +30,19 @@ public class TeleOp extends LinearOpMode {
 
     while(opModeIsActive())  {
 
-        if (this.gamepad1.left_bumper) {
+        if (this.gamepad1.left_bumper) {                               // L2
             
             MotChoixCouleur.setpower()                                 // Pour les deux setpower suivants on mettra 1 ou -1 selon la direction du moteur de base pour envoyer la balle à gauche ou à droite
 
-        if (this.gamepad1.right_bumper) {
+        if (this.gamepad1.right_bumper) {                              // R2
 
             MotChoixCouleur.setpower()
 
-            
+    private DcMotor MotBalleGauche, MotBalleDroit;
+
+    while (opModeIsActive())  {
+
+        if (this.
 
         
         
