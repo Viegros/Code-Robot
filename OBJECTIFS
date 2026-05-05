@@ -3,3 +3,14 @@ Trier les balles (automate) : servo moteur et capteur de couleur, selon vilet ou
 Il faut donc régler un compteur de balles ainsi que bien récupérer les couleurs à l'aide du capteur de couleur.
 On dit que le côté gauche est définit pour la couleur verte et le côté droit pour la couleur violette.
 Pour la partie TeleOp on peut juste faire ça à la main en tant qu'humain c'est à dire juste mettre les balles ou il y a de la place et configurer deux touches pour soit faire partir la servo moteur à droite soit à gauche 
+
+
+Banque de touches :
+
+Palette droite : Envoyer la balle à la zone l'avant du terrain 
+Palette Gauche : Envoyer la balle à la zone l'arrière du terrain
+L2 : Faire aller la balle à gauche 
+R2 : Faire aller la balle à droite 
+L1 : Envoyer la balle de gauche dans le canon
+R1 : Envoyer la balle de droite dans le canon 
+
