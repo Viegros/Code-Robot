@@ -11,23 +11,34 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class TeleOp extends LinearOpMode {
 
-    private DcMotor MotHaD;                                         // A rajouter, moteurs pour envoyer la balle
+    private DcMotor MotCanon;                                         // A rajouter, moteurs pour envoyer la balle
 
     while (opModeIsActive()) {
 
-        if (this.gamepad1.left_trigger) {                           // Ce serait confortable de faire en sorte que tant que l'autre touche n'est pas pressée
+        if (this.gamepad1.left_trigger) {                           // Palette gauche
 
-            MotHaD.setpower()                                       // Mettre la puissnace voulue entre -1 et 1 avec la puissance max  Position 1
+            MotCanon.setpower()                                       // Mettre la puissance voulue entre -1 et 1 avec la puissance max  Position 1
         } 
 
-        if (this.gamepad.right_trigger) {
+        if (this.gamepad1.right_trigger) {                          // Palette droite
 
-            MotHaD.setpower()                                       // Mettre la puiissance du moteur pour la position 2
+            MotCanon.setpower()                                       // Mettre la puiissance du moteur pour la position 2
         }
 
 // Par la suite, on voudra faire en sorte que la boule parte dans le canon.
+    private DcMotor MotChoixCouleur;
 
+    while(opModeIsActive())  {
 
+        if (this.gamepad1.left_bumper) {
+            
+            MotChoixCouleur.setpower()                                 // Pour les deux setpower suivants on mettra 1 ou -1 selon la direction du moteur de base pour envoyer la balle à gauche ou à droite
+
+        if (this.gamepad1.right_bumper) {
+
+            MotChoixCouleur.setpower()
+
+            
 
         
         
