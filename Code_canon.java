@@ -15,13 +15,13 @@ public class TeleOp extends LinearOpMode {
 
     while (opModeIsActive()) {
 
-        if (this.gamepad1.b) {                                       // Rond
+        if (this.gamepad1.b) {                                       // Touche Rond
 
             MotCanonDroite.setpower()
             MotCanonGauche.setpower()                                 // Mettre la puissance voulue entre -1 et 1 avec la puissance max  Position 1
         } 
 
-        if (this.gamepad1.dpad_left) {                                 // Fleche gauche
+        if (this.gamepad1.dpad_left) {                                 // Touche Fleche gauche
 
             MotCanonDroite.setpower()
             MotCanonDroite.setpower()                                                            // Mettre la puiissance du moteur pour la position 2
