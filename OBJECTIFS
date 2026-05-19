@@ -15,3 +15,5 @@ L1 : Envoyer la balle de gauche dans le canon
 R1 : Envoyer la balle de droite dans le canon 
 
 Regarder les erreurs possibles d'indentation dans le code du canon
+
+Faut faire gaffe parce que les moteurs se codent pas pareil que les servos moteurs donc revoir la photo du robot sur mon tél et savoir quels moteurs vont être des servos moteurs et quels moteurs des véritables moteurs.
