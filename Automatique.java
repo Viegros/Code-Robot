@@ -66,4 +66,5 @@ public class Automatique extends LinearOpMode {
       MotAVG3.setDirection(DcMotor.Direction.FORWARD);
   
  }
-  
+
+        
