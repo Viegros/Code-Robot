@@ -2,8 +2,8 @@ package org.firstinspires.ftc.teamcode.RobotController;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo; // Importation pour tous les servos
+import com.qualcomm.robotcore.hardware.DcMotor; // Importation pour tous les moteurs 
+import com.qualcomm.robotcore.hardware.Servo; // Importation pour tous les servosmoteurs
 
 @TeleOp
     
