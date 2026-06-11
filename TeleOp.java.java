@@ -13,7 +13,7 @@ public class TeleOp extends LinearOpMode {
     private DcMotor MotARD0, MotAVD1, MotARG2, MotAVG3;
     
     // --- Variables pour le Canon ---
-    private DcMotor MotCanonGauche, MotCanonDroite;
+    private DcMotor MotCanon;
     
     // --- Variable pour le choix de la couleur ---
     private Servo ServoChoixCouleur;
@@ -57,16 +57,13 @@ public class TeleOp extends LinearOpMode {
             // PARTIE 2 : Envoyer les balles
             
             if (this.gamepad1.b) { 
-                MotCanonDroite.setPower(1.0);
-                MotCanonGauche.setPower(1.0); 
+                MotCanon.setPower(1.0);
             } 
             else if (this.gamepad1.dpad_left) { 
-                MotCanonDroite.setPower(0.5);
-                MotCanonGauche.setPower(0.5); 
+                MotCanon.setPower(0.5); 
             } 
             else {
-                MotCanonDroite.setPower(0.0);
-                MotCanonGauche.setPower(0.0);
+                MotCanon.setPower(0.0);
             }
 
             
@@ -116,8 +113,7 @@ public class TeleOp extends LinearOpMode {
         MotARG2 = hardwareMap.get(DcMotor.class, "MotARG2");
         MotAVG3 = hardwareMap.get(DcMotor.class, "MotAVG3");
         
-        MotCanonGauche = hardwareMap.get(DcMotor.class, "MotCanonGauche");
-        MotCanonDroite = hardwareMap.get(DcMotor.class, "MotCanonDroite");
+        MotCanon = hardwareMap.get(DcMotor.class, "MotCanon");
         
         // Configuration Servomoteurs
         ServoChoixCouleur = hardwareMap.get(Servo.class, "ServoChoixCouleur");
