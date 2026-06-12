@@ -1,3 +1,8 @@
+Pas de problème chef, le voici tout propre et prêt à servir !
+
+C'est la version finale validée avec tes 5 moteurs (4 pour la base + 1 pour le canon + 1 pour le ramasseur) et tes 3 servomoteurs, incluant le système d'interrupteur sur le bouton A pour l'intake.
+
+Java
 package org.firstinspires.ftc.teamcode.RobotController;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -7,13 +12,20 @@ import com.qualcomm.robotcore.hardware.Servo; // Importation pour tous les servo
 
 @TeleOp
     
-public class TeleOp extends LinearOpMode {
+public class Tele_OP extends LinearOpMode {
 
     // --- Variables de la Base Mecanum ---
     private DcMotor MotARD0, MotAVD1, MotARG2, MotAVG3;
     
-    // --- Variables pour le Canon ---
+    // --- Variable pour le Canon ---
     private DcMotor MotCanon;
+    
+    // --- Variable pour le système de ramassage de balles ---
+    private DcMotor MotRamasseur;
+    
+    // --- Variables de mémoire pour le système d'interrupteur (Toggle) ---
+    private boolean intakeOn = false;
+    private boolean lastAState = false;
     
     // --- Variable pour le choix de la couleur ---
     private Servo ServoChoixCouleur;
@@ -36,7 +48,7 @@ public class TeleOp extends LinearOpMode {
         // Boucle principale
         while (opModeIsActive()) {
             
-           
+            
             // PARTIE 1 : Faire bouger le robot
             
             double y = -gamepad1.left_stick_y;  
@@ -54,7 +66,8 @@ public class TeleOp extends LinearOpMode {
             MotAVG3.setPower(AVG);
 
            
-            // PARTIE 2 : Envoyer les balles
+            
+            // PARTIE 2 : Envoyer les balles (Canon)
             
             if (this.gamepad1.b) { 
                 MotCanon.setPower(1.0);
@@ -67,7 +80,8 @@ public class TeleOp extends LinearOpMode {
             }
 
             
-            // PARTIE 3 : Choix des couleurs
+            
+            // PARTIE 3 : Choix des couleurs (Trieur)
             
             if (this.gamepad1.left_bumper) { // L1
                 // Le servo bascule complètement à gauche
@@ -83,12 +97,12 @@ public class TeleOp extends LinearOpMode {
             }
 
             
+            
             // PARTIE 4 : Pousser les balles dans le canon
-   
             
             // Compartiment Gauche (L2)
             if (this.gamepad1.left_trigger > 0.3) { 
-                ServoCompartimentGauche.setPosition(0.8); 
+                ServoCompartimentGauche.setPosition(-0.8); 
             } 
             else {
                 ServoCompartimentGauche.setPosition(0.0);
@@ -100,6 +114,22 @@ public class TeleOp extends LinearOpMode {
             } 
             else {
                 ServoCompartimentDroit.setPosition(0.0);
+            }
+            
+            
+            // PARTIE 5 : Système de ramassage (Bouton A)
+            
+            // On détecte le moment exact où le bouton A passe de "relâché" à "appuyé"
+            if (this.gamepad1.a && !lastAState) {
+                intakeOn = !intakeOn; // On inverse l'état (ON/OFF)
+            }
+            lastAState = this.gamepad1.a; // Mémorisation de l'état du bouton
+
+            // Application de la puissance au moteur selon l'interrupteur
+            if (intakeOn) {
+                MotRamasseur.setPower(1.0); // Active le ramassage à pleine puissance
+            } else {
+                MotRamasseur.setPower(0.0); // Arrête le ramasseur
             }
         }
     }
@@ -114,6 +144,7 @@ public class TeleOp extends LinearOpMode {
         MotAVG3 = hardwareMap.get(DcMotor.class, "MotAVG3");
         
         MotCanon = hardwareMap.get(DcMotor.class, "MotCanon");
+        MotRamasseur = hardwareMap.get(DcMotor.class, "MotRamasseur");
         
         // Configuration Servomoteurs
         ServoChoixCouleur = hardwareMap.get(Servo.class, "ServoChoixCouleur");
@@ -126,8 +157,8 @@ public class TeleOp extends LinearOpMode {
         MotARG2.setDirection(DcMotor.Direction.FORWARD);
         MotAVG3.setDirection(DcMotor.Direction.FORWARD);
         
-        MotCanonGauche.setDirection(DcMotor.Direction.FORWARD);
-        MotCanonDroite.setDirection(DcMotor.Direction.FORWARD);
+        MotCanon.setDirection(DcMotor.Direction.REVERSE);
+        MotRamasseur.setDirection(DcMotor.Direction.FORWARD);
 
         // Positions initiales des servomoteurs
         ServoChoixCouleur.setPosition(0.5);       // Centré par défaut
@@ -135,4 +166,3 @@ public class TeleOp extends LinearOpMode {
         ServoCompartimentDroit.setPosition(0.0);  // Fermé par défaut
     }
 }
-
