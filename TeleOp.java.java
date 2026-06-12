@@ -1,8 +1,4 @@
-Pas de problème chef, le voici tout propre et prêt à servir !
 
-C'est la version finale validée avec tes 5 moteurs (4 pour la base + 1 pour le canon + 1 pour le ramasseur) et tes 3 servomoteurs, incluant le système d'interrupteur sur le bouton A pour l'intake.
-
-Java
 package org.firstinspires.ftc.teamcode.RobotController;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
